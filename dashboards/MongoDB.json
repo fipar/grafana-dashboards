@@ -134,7 +134,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "mongodb_metrics_document_total{state=\"inserted\"}",
+              "expr": "delta(mongodb_metrics_document_total{state=\"inserted\"}[5s])",
               "intervalFactor": 2,
               "legendFormat": "",
               "metric": "mongodb_metrics_document_total",
@@ -144,7 +144,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Inserted Documents",
+          "title": "Inserted Documents (/5s)",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -161,377 +161,377 @@
       "title": "New row"
     },
     {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
       "collapse": false,
+      "editable": true,
+      "height": "250px",
       "panels": [
         {
-          "title": "Deleted Documents",
-          "error": false,
-          "span": 12,
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
           "editable": true,
-          "type": "graph",
-          "isNew": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
           "id": 3,
-          "datasource": null,
-          "renderer": "flot",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ],
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "rightMax": null,
-            "leftMin": null,
-            "rightMin": null,
-            "rightLogBase": 1,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
           },
           "lines": true,
-          "fill": 1,
           "linewidth": 2,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
-          "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
-            "current": false,
-            "total": false,
-            "avg": false
-          },
+          "links": [],
           "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
           "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": true
-          },
-          "timeFrom": null,
-          "timeShift": null,
           "targets": [
             {
-              "refId": "A",
-              "expr": "mongodb_metrics_document_total{state=\"deleted\"}",
+              "expr": "delta(mongodb_metrics_document_total{state=\"deleted\"}[5s])",
               "intervalFactor": 2,
-              "step": 2,
+              "legendFormat": "",
               "metric": "mongodb_metrics_document_total",
-              "legendFormat": ""
+              "refId": "A",
+              "step": 2
             }
           ],
-          "aliasColors": {},
-          "seriesOverrides": [],
-          "links": []
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Deleted Documents (/5s)",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
         }
-      ]
+      ],
+      "title": "New row"
     },
     {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
       "collapse": false,
+      "editable": true,
+      "height": "250px",
       "panels": [
         {
-          "title": "Updated Documents",
-          "error": false,
-          "span": 12,
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
           "editable": true,
-          "type": "graph",
-          "isNew": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
           "id": 4,
-          "datasource": null,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
           "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "delta(mongodb_metrics_document_total{state=\"updated\"}[5s])",
+              "intervalFactor": 2,
+              "metric": "mongodb_metrics_document_total",
+              "refId": "A",
+              "step": 2
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Updated Documents (/5s)",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
             "short",
             "short"
-          ],
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
           "grid": {
             "leftLogBase": 1,
             "leftMax": null,
-            "rightMax": null,
             "leftMin": null,
-            "rightMin": null,
             "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
             "threshold1": null,
-            "threshold2": null,
             "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
-          "lines": true,
-          "fill": 1,
-          "linewidth": 2,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
-          "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
-            "current": false,
-            "total": false,
-            "avg": false
-          },
-          "nullPointMode": "connected",
-          "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": true
-          },
-          "timeFrom": null,
-          "timeShift": null,
-          "targets": [
-            {
-              "refId": "A",
-              "expr": "mongodb_metrics_document_total{state=\"updated\"}",
-              "intervalFactor": 2,
-              "step": 2,
-              "metric": "mongodb_metrics_document_total"
-            }
-          ],
-          "aliasColors": {},
-          "seriesOverrides": [],
-          "links": []
-        }
-      ]
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "title": "Returned Documents",
-          "error": false,
-          "span": 12,
-          "editable": true,
-          "type": "graph",
-          "isNew": true,
           "id": 5,
-          "datasource": null,
-          "renderer": "flot",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ],
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "rightMax": null,
-            "leftMin": null,
-            "rightMin": null,
-            "rightLogBase": 1,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
           },
           "lines": true,
-          "fill": 1,
           "linewidth": 2,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
-          "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
-            "current": false,
-            "total": false,
-            "avg": false
-          },
+          "links": [],
           "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
           "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": true
-          },
-          "timeFrom": null,
-          "timeShift": null,
           "targets": [
             {
-              "refId": "A",
-              "expr": "mongodb_metrics_document_total{state=\"returned\"}",
+              "expr": "delta(mongodb_metrics_document_total{state=\"returned\"}[5s])",
               "intervalFactor": 2,
-              "step": 2,
-              "metric": "mongodb_metrics_document_total"
+              "metric": "mongodb_metrics_document_total",
+              "refId": "A",
+              "step": 2
             }
           ],
-          "aliasColors": {},
-          "seriesOverrides": [],
-          "links": []
-        }
-      ]
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "title": "Network Bytes in/out (/5s)",
-          "error": false,
-          "span": 12,
-          "editable": true,
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Returned Documents (/5s)",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
           "type": "graph",
-          "isNew": true,
-          "id": 6,
-          "datasource": null,
-          "renderer": "flot",
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
             "short",
             "short"
-          ],
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
           "grid": {
             "leftLogBase": 1,
             "leftMax": null,
-            "rightMax": null,
             "leftMin": null,
-            "rightMin": null,
             "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
             "threshold1": null,
-            "threshold2": null,
             "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
-          "lines": true,
-          "fill": 1,
-          "linewidth": 2,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
+          "id": 6,
+          "isNew": true,
           "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
+            "avg": false,
             "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
             "total": false,
-            "avg": false
+            "values": false
           },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
           "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
           "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": true
-          },
-          "timeFrom": null,
-          "timeShift": null,
           "targets": [
             {
-              "refId": "A",
               "expr": "delta(mongodb_network_bytes_total[5s])",
               "intervalFactor": 2,
-              "step": 2,
+              "legendFormat": "",
               "metric": "mongodb_network_bytes_total",
-              "legendFormat": ""
+              "refId": "A",
+              "step": 2
             }
           ],
-          "aliasColors": {},
-          "seriesOverrides": [],
-          "links": []
-        }
-      ]
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "title": "Operations (/5s)",
-          "error": false,
-          "span": 12,
-          "editable": true,
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Network Bytes in/out (/5s)",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
           "type": "graph",
-          "isNew": true,
-          "id": 7,
-          "datasource": null,
-          "renderer": "flot",
           "x-axis": true,
           "y-axis": true,
           "y_formats": [
             "short",
             "short"
-          ],
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
           "grid": {
             "leftLogBase": 1,
             "leftMax": null,
-            "rightMax": null,
             "leftMin": null,
-            "rightMin": null,
             "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
             "threshold1": null,
-            "threshold2": null,
             "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
-          "lines": true,
-          "fill": 1,
-          "linewidth": 2,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
+          "id": 7,
+          "isNew": true,
           "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
+            "avg": false,
             "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
             "total": false,
-            "avg": false
+            "values": false
           },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
           "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
           "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": true
-          },
-          "timeFrom": null,
-          "timeShift": null,
           "targets": [
             {
-              "refId": "A",
               "expr": "delta(mongodb_op_counters_total[5s])",
               "intervalFactor": 2,
-              "step": 2,
+              "legendFormat": "",
               "metric": "mongodb_op_counters_total",
-              "legendFormat": ""
+              "refId": "A",
+              "step": 2
             }
           ],
-          "aliasColors": {},
-          "seriesOverrides": [],
-          "links": []
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Operations (/5s)",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
         }
-      ]
+      ],
+      "title": "New row"
     }
   ],
   "time": {
@@ -571,6 +571,6 @@
     "list": []
   },
   "schemaVersion": 8,
-  "version": 8,
+  "version": 9,
   "links": []
 }
