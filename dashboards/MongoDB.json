@@ -33,7 +33,7 @@
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
-          "id": 1,
+          "id": 8,
           "isNew": true,
           "legend": {
             "avg": false,
@@ -58,18 +58,30 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "mongodb_memory",
-              "interval": "1s",
+              "expr": "mongodb_summary_response_time{quantile=\"0.5\"}",
               "intervalFactor": 2,
-              "legendFormat": "",
-              "metric": "mongodb_memory",
-              "refId": "A",
+              "legendFormat": ".5 quantile",
+              "refId": "B",
               "step": 2
+            },
+            {
+              "refId": "C",
+              "expr": "mongodb_summary_response_time{quantile=\"0.9\"}",
+              "intervalFactor": 2,
+              "step": 2,
+              "legendFormat": ".9 quantile"
+            },
+            {
+              "refId": "D",
+              "expr": "mongodb_summary_response_time{quantile=\"0.99\"}",
+              "intervalFactor": 2,
+              "step": 2,
+              "legendFormat": ".99 quantile"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Memory",
+          "title": "MongoDB Response Time",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -184,7 +196,7 @@
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
-          "id": 3,
+          "id": 1,
           "isNew": true,
           "legend": {
             "avg": false,
@@ -209,17 +221,18 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "delta(mongodb_metrics_document_total{state=\"deleted\"}[5s])",
+              "expr": "mongodb_memory",
+              "interval": "1s",
               "intervalFactor": 2,
               "legendFormat": "",
-              "metric": "mongodb_metrics_document_total",
+              "metric": "mongodb_memory",
               "refId": "A",
               "step": 2
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Deleted Documents (/5s)",
+          "title": "Memory",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -333,7 +346,7 @@
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
-          "id": 5,
+          "id": 3,
           "isNew": true,
           "legend": {
             "avg": false,
@@ -358,8 +371,9 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "delta(mongodb_metrics_document_total{state=\"returned\"}[5s])",
+              "expr": "delta(mongodb_metrics_document_total{state=\"deleted\"}[5s])",
               "intervalFactor": 2,
+              "legendFormat": "",
               "metric": "mongodb_metrics_document_total",
               "refId": "A",
               "step": 2
@@ -367,7 +381,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Returned Documents (/5s)",
+          "title": "Deleted Documents (/5s)",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -482,6 +496,80 @@
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
+          "id": 5,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "delta(mongodb_metrics_document_total{state=\"returned\"}[5s])",
+              "intervalFactor": 2,
+              "metric": "mongodb_metrics_document_total",
+              "refId": "A",
+              "step": 2
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Returned Documents (/5s)",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
           "id": 7,
           "isNew": true,
           "legend": {
@@ -532,98 +620,10 @@
         }
       ],
       "title": "New row"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": null,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 8,
-          "isNew": true,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "mongodb_summary_response_time{quantile=\"0.5\"}",
-              "intervalFactor": 2,
-              "legendFormat": ".5 quantile",
-              "refId": "B",
-              "step": 2
-            },
-            {
-              "refId": "C",
-              "expr": "mongodb_summary_response_time{quantile=\"0.9\"}",
-              "intervalFactor": 2,
-              "step": 2,
-              "legendFormat": ".9 quantile"
-            },
-            {
-              "refId": "D",
-              "expr": "mongodb_summary_response_time{quantile=\"0.99\"}",
-              "intervalFactor": 2,
-              "step": 2,
-              "legendFormat": ".99 quantile"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "MongoDB Response Time",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ]
-        }
-      ],
-      "title": "New row"
     }
   ],
   "time": {
-    "from": "now-30m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -659,6 +659,6 @@
     "list": []
   },
   "schemaVersion": 8,
-  "version": 13,
+  "version": 14,
   "links": []
 }
