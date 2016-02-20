@@ -582,19 +582,25 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "histogram_quantile(0.99,mongodb_histogram_response_time_bucket)",
+              "expr": "mongodb_summary_response_time{quantile=\"0.5\"}",
               "intervalFactor": 2,
-              "legendFormat": ".99 quantile",
-              "metric": "mongodb_response_time_bucket",
-              "refId": "A",
+              "legendFormat": ".5 quantile",
+              "refId": "B",
               "step": 2
             },
             {
-              "refId": "B",
-              "expr": "mongodb_summary_response_time",
+              "refId": "C",
+              "expr": "mongodb_summary_response_time{quantile=\"0.9\"}",
               "intervalFactor": 2,
               "step": 2,
-              "legendFormat": "Summary"
+              "legendFormat": ".9 quantile"
+            },
+            {
+              "refId": "D",
+              "expr": "mongodb_summary_response_time{quantile=\"0.99\"}",
+              "intervalFactor": 2,
+              "step": 2,
+              "legendFormat": ".99 quantile"
             }
           ],
           "timeFrom": null,
@@ -617,7 +623,7 @@
     }
   ],
   "time": {
-    "from": "now-5m",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -653,6 +659,6 @@
     "list": []
   },
   "schemaVersion": 8,
-  "version": 12,
+  "version": 13,
   "links": []
 }
